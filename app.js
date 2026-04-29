@@ -7,7 +7,7 @@ const Attendance = require("./models/attendance");
 const app = express();
 
 // MongoDB connection
-mongoose.connect("mongodb://localhost:27017/attendanceDB");
+mongoose.connect("mongodb://anhadparihar07_db_user:F2Z1veakHrvJyCeQ@ac-xpzxcmc-shard-00-00.yzwqadv.mongodb.net:27017,ac-xpzxcmc-shard-00-01.yzwqadv.mongodb.net:27017,ac-xpzxcmc-shard-00-02.yzwqadv.mongodb.net:27017/attendanceDB?ssl=true&replicaSet=atlas-fixogy-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0");
 
 // View engine setup
 app.set("view engine", "ejs");
@@ -37,12 +37,15 @@ app.post("/submit", async (req, res) => {
 // Show records page
 app.get("/records", async (req, res) => {
 
-    const data = await Attendance.find();
+    const records = await Attendance.find();
 
-    res.render("records", { data });
+    res.render("records", { records });
+
 });
 
 // Start server
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
 });
