@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Records</title>
+</head>
+
+<body>
+
+<h2>Attendance Records</h2>
+
+<ul>
+
+<% data.forEach(student => { %>
+
+<li>
+Name: <%= student.name %> |
+Roll: <%= student.roll %> |
+Date: <%= student.date.toDateString() %>
+</li>
+
+<% }) %>
+
+</ul>
+
+<br>
+
+<a href="/">
+Back to Attendance Form
+</a>
+
+</body>
+</html>
