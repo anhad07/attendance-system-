@@ -7,7 +7,7 @@ const Attendance = require("./models/attendance");
 const app = express();
 
 // MongoDB connection
-mongoose.connect("mongodb://anhadparihar07_db_user:F2Z1veakHrvJyCeQ@ac-xpzxcmc-shard-00-00.yzwqadv.mongodb.net:27017,ac-xpzxcmc-shard-00-01.yzwqadv.mongodb.net:27017,ac-xpzxcmc-shard-00-02.yzwqadv.mongodb.net:27017/attendanceDB?ssl=true&replicaSet=atlas-fixogy-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect(process.env.MONGO_URI);
 
 // View engine setup
 app.set("view engine", "ejs");
